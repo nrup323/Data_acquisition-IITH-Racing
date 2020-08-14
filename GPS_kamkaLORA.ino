@@ -1,13 +1,15 @@
-#include <DHT.h>
+//libraries for tempreature module
+#include <DHT.h>   
 #include <DHT_U.h>
 #include "DHT.h"
 
+// librarie for SPI bus as communication modules we are using is LoRa is based on SPI
 #include <SPI.h>
 //#include <SD.h>
-
+#library for LCD
 #include <Wire.h>
 #include <LiquidCrystal_I2C.h>
-
+//library for gps module
 #include <TinyGPS++.h>
 #include "LiquidCrystal.h"
 TinyGPSPlus gps;
@@ -19,9 +21,9 @@ LiquidCrystal_I2C lcd(0x27 ,20,4);
 #define DHTTYPE DHT11
 DHT dht(DHTPIN , DHTTYPE);
 
-#define potpin A0 
-int potv ;
-
+//#define potpin A0 
+//int potv ;
+//library for lora module sx1278
 #include<RadioLib.h>
 SX1278 lora = new Module(10,2,3);
 
@@ -62,7 +64,7 @@ void setup() {
   Serial.begin(9600);
   Serial1.begin(9600);//gps
   Serial2.begin(9600);//hall
-  Serial3.begin(9600);//xbee communication
+  Serial3.begin(9600);//xbee communication(Initially i was working with Xbee modules for communication then I shifted to LoRa odule for better range.)
   Serial.println("Setting LoRa Module");
   
  // pinMode(potpin , INPUT);
